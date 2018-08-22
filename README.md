@@ -12,7 +12,7 @@
 仅适用于`微信开放平台`-`网站应用`。
 
 ## 使用方法
-第一步：根据微信UUID获取二维码图片；  
+第一步：根据Appid及授权回调域获取二维码图片和微信UUID；  
 第二步：获取微信服务器返回的Code（[详见微信开放平台文档](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=&lang=zh_CN)）。  
 
 ## 测试方法
