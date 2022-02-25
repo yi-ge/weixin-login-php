@@ -6,7 +6,7 @@ header('Access-Control-Allow-Origin: *');
 
 if (!empty($_GET['uuid'])) {
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://long.open.weixin.qq.com/connect/l/qrconnect?uuid=' . $_GET['uuid'] . (empty($_GET['last']) ? '' : '&last=' . $_GET['last']));
+    curl_setopt($ch, CURLOPT_URL, 'https://lp.open.weixin.qq.com/connect/l/qrconnect?uuid=' . $_GET['uuid'] . (empty($_GET['last']) ? '' : '&last=' . $_GET['last']));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
@@ -80,7 +80,7 @@ if (!empty($_GET['uuid'])) {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Cache-Control: no-cache', 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3522.0 Safari/537.36'));
     $output = curl_exec($ch);
     curl_close($ch);
-    $preg = '/src="\/connect\/qrcode\/(.*?)" \/>/i';
+    $preg = '/src="\/connect\/qrcode\/(.*?)"/i';
     preg_match_all($preg, $output, $res);
     $uuid = $res[1][0];
     if (isset($_GET['img'])) { // 不推荐 - 如果设置了img参数，则返回图片的下载地址，但此地址无法解决Chrome70不信任腾讯域名证书的问题
